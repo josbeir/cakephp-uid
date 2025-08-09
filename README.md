@@ -2,8 +2,11 @@
 
 A CakePHP plugin providing a collection of UID field types for your applications.
 
+You can follow ongoing discussion about native UID support on the official CakePHP issue tracker [here](https://github.com/cakephp/cakephp/issues/18807). This plugin provides a solution until more convenient support is available in CakePHP core.
+
 ## Features
 
+- **UUIDv4** field type
 - **UUIDv6** field type
 - **UUIDv7** field type
 - **ULID** field type
@@ -28,6 +31,15 @@ $this->addPlugin('Uid');
 
 Before using the UID field types in your schema, you need to map them using `TypeFactory::map` in your application bootstrap or plugin initialization:
 
+If you want to use these types instead of CakePHP's [native ones](https://book.cakephp.org/5/en/orm/database-basics.html#data-types), you need to override the original types as shown below. CakePHP will handle the rest based on your database field settings.
+
+For UUID/ULID with column type `BINARY(16)`:
+```php
+TypeFactory::map('binaryuuid', BinaryUuidV7Type::class); // Uses UUID V7
+TypeFactory::map('binaryuuid', BinaryUlidType::class); // Uses ULID
+```
+
+Other possibilities:
 ```php
 TypeFactory::map('uuidv4', UuidV4Type::class);
 TypeFactory::map('uuidv6', UuidV6Type::class);
@@ -38,29 +50,6 @@ TypeFactory::map('binaryuuidv6', BinaryUuidV6Type::class);
 TypeFactory::map('binaryuuidv7', BinaryUuidV7Type::class);
 TypeFactory::map('binaryulid', BinaryUlidType::class);
 ```
-
-Use the field types in your tables as you would with standard UUIDs.
-
-### Example: Setting a UID Field Type in a Table
-
-To use a UID field type in your table, set the column type in the `initialize` method:
-
-```php
-public function initialize(array $config): void
-{
-    parent::initialize($config);
-
-    // Set the 'id' column to use the 'uuidv7' type
-    $this->getSchema()->setColumnType('id', 'uuidv7');
-}
-```
-
-## Supported Field Types
-
-- `uuidv4`
-- `uuidv6`
-- `uuidv7`
-- `ulid`
 
 ## Underlying Library
 
