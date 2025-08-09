@@ -19,7 +19,6 @@
             "CakeUid\\": "src/"
         },
         "autoload-dev": {
-            "CakeUid\\TestApp\\": "tests/testapp/",
             "CakeUid\\Test\\": "tests/TestCase/"
         }
     },

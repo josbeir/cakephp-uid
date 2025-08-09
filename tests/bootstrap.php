@@ -6,7 +6,6 @@ use Cake\Chronos\Chronos;
 use Cake\Core\Configure;
 use Cake\Database\TypeFactory;
 use Cake\Datasource\ConnectionManager;
-use Cake\TestSuite\Fixture\SchemaLoader;
 use CakeUid\Database\Type\BinaryUlidType;
 use CakeUid\Database\Type\BinaryUuidV4Type;
 use CakeUid\Database\Type\BinaryUuidV6Type;
@@ -83,7 +82,7 @@ TypeFactory::map('binaryuuidv6', BinaryUuidV6Type::class);
 TypeFactory::map('binaryuuidv7', BinaryUuidV7Type::class);
 TypeFactory::map('binaryulid', BinaryUlidType::class);
 
-if (getenv('FIXTURE_SCHEMA_METADATA')) {
-    $loader = new SchemaLoader();
-    $loader->loadSqlFiles('./tests/schema.sql', 'test');
-}
+// if (getenv('FIXTURE_SCHEMA_METADATA')) {
+//     $loader = new SchemaLoader();
+//     $loader->loadSqlFiles('./tests/schema.sql', 'test');
+// }
