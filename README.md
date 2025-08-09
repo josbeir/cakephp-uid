@@ -25,12 +25,6 @@ Install via Composer:
 composer require josbeir/cakephp-uid
 ```
 
-Load the plugin in your `Application.php`:
-
-```php
-$this->addPlugin('Uid');
-```
-
 ## Usage
 
 Before using the UID field types in your schema, you need to map them using `TypeFactory::map` in your application bootstrap or plugin initialization:
