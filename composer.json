@@ -27,8 +27,10 @@
     "autoload": {
         "psr-4": {
             "CakeUid\\": "src/"
-        },
-        "autoload-dev": {
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "CakeUid\\Test\\": "tests/TestCase/"
         }
     },
