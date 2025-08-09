@@ -2,6 +2,13 @@
     "name": "josbeir/cakephp-uid",
     "description": "CakePHP plugin that provides various UID types for the ORM",
     "type": "cakephp-plugin",
+    "keywords": [
+        "cakephp",
+        "uid",
+        "uuid",
+        "ulid",
+        "orm"
+    ],
     "require": {
 		"php": ">=8.2",
         "cakephp/cakephp": "^5.1",
@@ -15,6 +22,8 @@
         "cakephp/cakephp-codesniffer": "^5.2"
     },
     "license": "MIT",
+   	"minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "CakeUid\\": "src/"
@@ -36,8 +45,11 @@
         }
     },
     "scripts": {
+		"lowest": "validate-prefer-lowest",
         "test": "phpunit --colors=always",
-        "phpstan": "phpstan analyse",
+        "test-coverage": "phpunit --log-junit tmp/coverage/unitreport.xml --coverage-html tmp/coverage --coverage-clover tmp/coverage/coverage.xml",
+		"stan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan:^2.0.0 && mv composer.backup composer.json",
+        "stan-tests": "phpstan analyse -c tests/phpstan.neon",
         "cs-check": "phpcs --colors -p -s --extensions=php src/ tests/",
         "cs-fix": "phpcbf --colors -p -s --extensions=php src/ tests/"
     }

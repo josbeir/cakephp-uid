@@ -111,6 +111,9 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
 
+      - name: Composer Setup
+        run: composer stan-setup
+
       - name: Run phpstan
         run: vendor/bin/phpstan analyse --error-format=github
 

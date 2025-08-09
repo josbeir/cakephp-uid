@@ -1,3 +1,7 @@
+[![CI](https://github.com/josbeir/cakephp-uid/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/josbeir/cakephp-uid/actions/workflows/ci.yml?query=branch%main)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat)](https://phpstan.org/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-8892BF.svg)](https://php.net/)
+
 # CakePHP UID Plugin
 
 A CakePHP plugin providing a collection of UID field types for your applications.
