@@ -3,6 +3,7 @@
     "description": "CakePHP plugin that provides various UID types for the ORM",
     "type": "cakephp-plugin",
     "require": {
+		"php": ">=8.2",
         "cakephp/cakephp": "^5.1",
         "symfony/uid": "^7.3"
     },
