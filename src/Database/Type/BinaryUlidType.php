@@ -1,0 +1,57 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
+ * @since         3.0.0
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
+ */
+namespace CakeUid\Database\Type;
+
+use Symfony\Component\Uid\Ulid;
+
+/**
+ * Provides behavior for the UUID v6 type
+ */
+final class BinaryUlidType extends AbstractBinaryType
+{
+    /**
+     * @inheritDoc
+     */
+    public function convertBinaryUidToString(mixed $binary): string
+    {
+        return Ulid::fromBinary($binary)->toString();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function convertStringToBinaryUid(string $string): string
+    {
+        return Ulid::fromString($string)->toBinary();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function generateUid(): string
+    {
+        return Ulid::generate();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isValid(string $uid): bool
+    {
+        return Ulid::isValid($uid);
+    }
+}
