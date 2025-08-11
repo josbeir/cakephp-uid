@@ -18,11 +18,12 @@ jobs:
         prefer-lowest: ['']
         include:
           - php-version: '8.2'
-            db-type: 'sqlite'
             prefer-lowest: 'prefer-lowest'
 
     container:
       image: thecodingmachine/php:${{ matrix.php-version }}-v5-cli
+      options: --user root
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,11 +45,18 @@ jobs:
             vendor/bin/phpunit
           fi
 
+      - name: Validate prefer-lowest
+        if: matrix.prefer-lowest == 'prefer-lowest'
+        run: vendor/bin/validate-prefer-lowest -m
+
   static-analysis:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' || github.event_name == 'pull_request'
+
     container:
       image: thecodingmachine/php:8.4-v5-cli
+      options: --user root
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -60,4 +68,4 @@ jobs:
         run: vendor/bin/phpstan analyse --no-progress --error-format=github
 
       - name: Run PHPCS
-        run: vendor/bin/phpcs src/ tests/
+        run: vendor/bin/phpcs
