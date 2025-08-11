@@ -1,6 +1,7 @@
 [![CI](https://github.com/josbeir/cakephp-uid/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/josbeir/cakephp-uid/actions/workflows/ci.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat)](https://phpstan.org/)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-8892BF.svg)](https://php.net/)
+![Packagist Downloads](https://img.shields.io/packagist/dt/josbeir/cakephp-uid)
 
 # CakePHP UID Plugin
 
@@ -31,7 +32,10 @@ Before using the UID field types in your schema, you need to map them using `Typ
 
 If you want to use these types instead of CakePHP's [native ones](https://book.cakephp.org/5/en/orm/database-basics.html#data-types), you need to override the original types as shown below. CakePHP will handle the rest based on your database field settings.
 
-For UUID/ULID with column type `BINARY(16)`:
+- For UUID: use column type `UUID` (when supported by your db) or `BINARY(16)` or `CHAR(36)`:
+- FOR ULID: use column type `BINARY(16)` or `CHAR(26)`:
+- Remember that a UUID/BINARY is prefererd for performance reasons.
+
 ```php
 TypeFactory::map('binaryuuid', BinaryUuidV7Type::class); // Uses UUID V7
 TypeFactory::map('binaryuuid', BinaryUlidType::class); // Uses ULID
