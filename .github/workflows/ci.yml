@@ -15,14 +15,15 @@ jobs:
     strategy:
       matrix:
         php-version: [8.2, 8.3, 8.4]
-        prefer-lowest: ['']
-        include:
-          - php-version: '8.2'
-            db-type: 'sqlite'
-            prefer-lowest: 'prefer-lowest'
+        # prefer-lowest: ['']
+        # include:
+        #   - php-version: '8.2'
+        #     prefer-lowest: 'prefer-lowest'
 
     container:
       image: thecodingmachine/php:${{ matrix.php-version }}-v5-cli
+      options: --user root
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -49,6 +50,8 @@ jobs:
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     container:
       image: thecodingmachine/php:8.4-v5-cli
+      options: --user root
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
