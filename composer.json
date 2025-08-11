@@ -15,7 +15,6 @@
         "symfony/uid": "^7.3"
     },
     "require-dev": {
-        "cakephp/migrations": "^4.5",
         "cakephp/plugin-installer": "^2",
         "phpunit/phpunit": "^10.5 || ^11.1 || ^12.0",
         "phpstan/phpstan": "^2.1",
@@ -36,8 +35,7 @@
     },
     "authors": [
         {
-            "name": "Jasper Smet",
-            "email": "josbeir@gmail.com"
+            "name": "Jasper Smet"
         }
     ],
     "config": {
