@@ -9,6 +9,7 @@ use Cake\Database\TypeInterface;
 use Cake\TestSuite\TestCase;
 use PDO;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Uid\Uuid;
 
@@ -25,7 +26,7 @@ class UidTypeTest extends TestCase
     /**
      * @var \Cake\Database\Driver
      */
-    protected $driver;
+    protected MockObject $driver;
 
     /**
      * Setup
@@ -38,8 +39,6 @@ class UidTypeTest extends TestCase
 
     /**
      * Data provider for UID types
-     *
-     * @return array
      */
     public static function dataProviderForUidTypes(): array
     {

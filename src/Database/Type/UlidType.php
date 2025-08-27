@@ -13,7 +13,7 @@ class UlidType extends AbstractType
     /**
      * @inheritDoc
      */
-    public function generateUid(): string
+    protected function generateUid(): string
     {
         return Ulid::generate();
     }

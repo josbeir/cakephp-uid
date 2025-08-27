@@ -29,7 +29,7 @@ final class BinaryUuidV7Type extends AbstractBinaryType
     /**
      * @inheritDoc
      */
-    public function generateUid(): string
+    protected function generateUid(): string
     {
         return Uuid::v7()->toString();
     }

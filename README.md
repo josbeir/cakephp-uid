@@ -1,7 +1,9 @@
 [![CI](https://github.com/josbeir/cakephp-uid/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/josbeir/cakephp-uid/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/josbeir/cakephp-uid/graph/badge.svg?token=CCX9UIFF28)](https://codecov.io/gh/josbeir/cakephp-uid)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat)](https://phpstan.org/)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-8892BF.svg)](https://php.net/)
 [![Packagist Downloads](https://img.shields.io/packagist/dt/josbeir/cakephp-uid)](https://packagist.org/packages/josbeir/cakephp-uid)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 # CakePHP UID Plugin
 
@@ -59,7 +61,7 @@ This plugin utilizes the [Symfony UID component](https://symfony.com/doc/current
 
 ## License
 
-MIT
+[MIT](LICENSE.md)
 
 ## Contributing
 

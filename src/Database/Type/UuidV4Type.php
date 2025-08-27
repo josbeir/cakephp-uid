@@ -13,7 +13,7 @@ final class UuidV4Type extends AbstractType
     /**
      * @inheritDoc
      */
-    public function generateUid(): string
+    protected function generateUid(): string
     {
         return Uuid::v4()->toString();
     }

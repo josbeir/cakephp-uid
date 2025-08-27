@@ -18,7 +18,8 @@
         "cakephp/plugin-installer": "^2.0.1",
         "phpunit/phpunit": "^11.0 || ^12.0",
         "phpstan/phpstan": "^2.1",
-        "cakephp/cakephp-codesniffer": "^5.2"
+        "cakephp/cakephp-codesniffer": "^5.2",
+        "rector/rector": "^2.1"
     },
     "license": "MIT",
    	"minimum-stability": "stable",
@@ -45,12 +46,12 @@
         }
     },
     "scripts": {
-		"lowest": "validate-prefer-lowest",
+        "lowest": "validate-prefer-lowest",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --log-junit tmp/coverage/unitreport.xml --coverage-html tmp/coverage --coverage-clover tmp/coverage/coverage.xml",
-		"stan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan:^2.0.0 && mv composer.backup composer.json",
-        "stan-tests": "phpstan analyse -c tests/phpstan.neon",
-        "cs-check": "phpcs --colors -p -s --extensions=php src/ tests/",
-        "cs-fix": "phpcbf --colors -p -s --extensions=php src/ tests/"
+        "test-coverage": "export XDEBUG_MODE=coverage; phpunit --log-junit tmp/coverage/unitreport.xml --coverage-html tmp/coverage --coverage-clover tmp/coverage/coverage.xml",
+        "stan": "phpstan analyse",
+        "cs-check": "phpcs --colors -p -s",
+        "cs-fix": "phpcbf --colors -p -s",
+        "rector": "rector --ansi"
     }
 }

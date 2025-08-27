@@ -23,7 +23,6 @@ abstract class AbstractBinaryType extends BaseType
      *
      * @param mixed $value The value to convert.
      * @param \Cake\Database\Driver $driver The driver instance to convert with.
-     * @return mixed
      */
     public function toDatabase(mixed $value, Driver $driver): mixed
     {
@@ -70,9 +69,11 @@ abstract class AbstractBinaryType extends BaseType
         if ($value === null) {
             return null;
         }
+
         if (is_string($value)) {
             return $this->convertBinaryUidToString($value);
         }
+
         if (is_resource($value)) {
             return $value;
         }
