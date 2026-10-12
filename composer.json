@@ -10,19 +10,19 @@
         "orm"
     ],
     "require": {
-		"php": ">=8.2",
-        "cakephp/cakephp": "^5.0",
+        "php": ">=8.5",
+        "cakephp/cakephp": "^6.0@dev",
         "symfony/uid": "^7.3"
     },
     "require-dev": {
         "cakephp/plugin-installer": "^2.0.1",
-        "phpunit/phpunit": "^11.0 || ^12.0",
+        "phpunit/phpunit": "^13.0",
         "phpstan/phpstan": "^2.1",
-        "cakephp/cakephp-codesniffer": "^5.2",
+        "cakephp/cakephp-codesniffer": "^6.0@dev",
         "rector/rector": "^2.1"
     },
     "license": "MIT",
-   	"minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
@@ -52,6 +52,7 @@
         "stan": "phpstan analyse",
         "cs-check": "phpcs --colors -p -s",
         "cs-fix": "phpcbf --colors -p -s",
+        "rector-check": "rector --dry-run --ansi",
         "rector": "rector --ansi"
     }
 }
