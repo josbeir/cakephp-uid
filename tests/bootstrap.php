@@ -68,6 +68,8 @@ if (!getenv('DB_URL')) {
 
 ConnectionManager::setConfig('test', [
     'url' => getenv('DB_URL'),
+    'username' => '',
+    'password' => '',
     'timezone' => 'UTC',
     'quoteIdentifiers' => true,
     'cacheMetadata' => true,

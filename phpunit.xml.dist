@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 colors="true"
+		 failOnPhpunitNotice="true"
 		 bootstrap="tests/bootstrap.php"
-		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd">
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/13.4/phpunit.xsd">
 	<php>
 		<ini name="memory_limit" value="-1"/>
-		<ini name="apc.enable_cli" value="1"/>
 		<!-- E_ALL => 32767 -->
 		<!-- E_ALL & ~E_USER_DEPRECATED => 16383 -->
 		<ini name="error_reporting" value="32767"/>
 
-		<env name="FIXTURE_SCHEMA_METADATA" value="tests/schema.php"/>
 	</php>
 
 	<testsuites>
-		<testsuite name="ide-helper">
+		<testsuite name="CakeUid">
 			<directory>tests/TestCase/</directory>
 		</testsuite>
 	</testsuites>

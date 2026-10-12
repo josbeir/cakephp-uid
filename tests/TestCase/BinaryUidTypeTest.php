@@ -10,7 +10,6 @@ use Cake\Database\TypeInterface;
 use Cake\TestSuite\TestCase;
 use PDO;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Uid\Uuid;
 
@@ -19,10 +18,7 @@ use Symfony\Component\Uid\Uuid;
  */
 class BinaryUidTypeTest extends TestCase
 {
-    /**
-     * @var \Cake\Database\Driver
-     */
-    protected MockObject $driver;
+    protected Driver $driver;
 
     /**
      * Setup
@@ -30,7 +26,7 @@ class BinaryUidTypeTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->driver = $this->getMockBuilder(Driver::class)->getMock();
+        $this->driver = $this->createStub(Driver::class);
     }
 
     /**
